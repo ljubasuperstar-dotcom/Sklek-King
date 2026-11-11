@@ -1,6 +1,6 @@
 name: Build Sklek King APK
 
-on:
+"on":
   workflow_dispatch:
 
 permissions:
