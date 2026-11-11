@@ -1,3 +1,2 @@
 name: Build Sklek King APK
-on:
-  workflow_dispatch:
+on:  workflow_dispatch:
