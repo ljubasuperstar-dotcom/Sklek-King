@@ -1,1 +1,29 @@
 
+name: Inspect Sklek King
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Inspect ZIP
+        run: |
+          unzip -l Sklek_King_Android_PWA.zip
+          mkdir extracted
+          unzip -q Sklek_King_Android_PWA.zip -d extracted
+          echo "=== PROJECT FILES ==="
+          find extracted -maxdepth 5 -type f | sort
+          echo "=== APP.JS ==="
+          find extracted -iname "App.js" -exec sed -n '1,220p' {} \;
+          echo "=== HTML ==="
+          find extracted -iname "*.html" -exec sed -n '1,160p' {} \;
+          echo "=== INSPECTION COMPLETE ==="
+
