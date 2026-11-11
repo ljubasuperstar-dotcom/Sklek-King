@@ -1,5 +1,4 @@
 name: Build Sklek King APK
-name: Build Sklek King APK
 
 on:
   workflow_dispatch:
